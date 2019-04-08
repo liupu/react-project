@@ -1,35 +1,29 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import * as actions from '../actions';
-let App = ({ num, actions }) => {
+
+let App = ({ num , actions }) => {
     return (
         <div>
-            <h1>{num}</h1>
-            <button onClick={actions.addFun}>加法运算</button>
-            {"  "}
-            <button onClick={actions.minusFun}>减法运算</button>
+            <p>{num}</p>
+            <button onClick = { actions.addFun }>+</button>
+            {" "}
+            <button onClick = { actions.minusFun }>-</button>
         </div>
     )
 }
 export default connect(
+    //将state和actions传入App中，使得App组件获得state和actions
     (state) => {
         return {
-            num: state.num
+            num:state.num
         }
     },
     (dispatch) => {
+        //将actions和dispatch进行绑定
         return {
-            // actions : actions.bindActionCreators()
-            // actions: {
-            //     addFun: function () {
-            //         dispatch({ 'type': 'ADDFUN' })
-            //     },
-            //     minus: function () {
-            //         dispatch({ 'type': 'MINUSFUN' })
-            //     }
-            // }
-            actions: bindActionCreators(actions,dispatch)
+            actions: bindActionCreators(actions, dispatch)
         }
     }
 )(App);
