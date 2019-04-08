@@ -1,25 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer  from './reducer';
+import App from './app';
 import './index.css';
-//React element都是不变的，当元素被创建后，你是无法改变其内容或属性的。
-//React 只会更新必要的部分
+const rootElement = document.querySelector('#root');
 
-const tick = () => {
-    const element = (
-        <div>
-            <h1>
-                Hello, World!
-            </h1>
-            <h2>
-                It is {new Date().toLocaleTimeString('en')}.
-            </h2>
-        </div>
-    );
-    ReactDOM.render(
-        element,
-        document.querySelector(`#root`)
-    );    
-}
-setInterval(tick,1000);
+let store = createStore(reducer);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App></App>
+    </Provider>,
+    rootElement
+)
 
