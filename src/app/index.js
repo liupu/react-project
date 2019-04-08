@@ -2,11 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
-let App = ({ v, actions }) => {
-    //console.log(actions);
+let App = ({ num, actions }) => {
     return (
         <div>
-            <h1>{v}</h1>
+            <h1>{num}</h1>
             <button onClick={actions.addFun}>加法运算</button>
             {"  "}
             <button onClick={actions.minusFun}>减法运算</button>
@@ -17,7 +16,7 @@ let App = ({ v, actions }) => {
 export default connect(
     (state) => {
         return {
-            v: state.v
+            num: state.num
         }
     },
     (dispatch) => {
