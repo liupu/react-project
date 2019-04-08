@@ -6,9 +6,7 @@ import reducer  from './reducer';
 import App from './app';
 import './index.css';
 const rootElement = document.querySelector('#root');
-
 let store = createStore(reducer);
-
 ReactDOM.render(
     <Provider store={store}>
         <App></App>

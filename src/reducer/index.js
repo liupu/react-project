@@ -9,5 +9,4 @@ export default (state,action)=> {
         case "MINUSFUN":
         return {"num":state.num-1, "a":1, "b":2};
     }
-
 }

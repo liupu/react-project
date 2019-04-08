@@ -12,7 +12,6 @@ let App = ({ num, actions }) => {
         </div>
     )
 }
-
 export default connect(
     (state) => {
         return {
@@ -23,15 +22,14 @@ export default connect(
         return {
             // actions : actions.bindActionCreators()
             // actions: {
-            //     zengjia: function () {
-            //         dispatch({ 'type': 'ZENGJIA' })
+            //     addFun: function () {
+            //         dispatch({ 'type': 'ADDFUN' })
             //     },
-            //     jianshao: function () {
-            //         dispatch({ 'type': 'JIANSHAO' })
+            //     minus: function () {
+            //         dispatch({ 'type': 'MINUSFUN' })
             //     }
             // }
             actions: bindActionCreators(actions,dispatch)
-
         }
     }
 )(App);
