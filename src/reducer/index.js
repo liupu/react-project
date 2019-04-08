@@ -6,9 +6,11 @@ export default (state, action) => {
     }
     switch(action.type){
         case "ADDFUN":
-        return {...state, "num":state.num+1};
+        return {...state, "num":state.num + 1};
         case "MINUSFUN":
-        return {...state,"num":state.num-1};
+        return {...state,"num":state.num - 1};
+        case "ADDFUNASINPUT":
+        return {...state,"num":state.num + action.number}
     }
   
 }
