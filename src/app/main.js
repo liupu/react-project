@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class App extends Component {
     addNum(){
+        //同级组件之间传值
         let number = Number(this.refs.num.value); 
         console.log(number);
         this.props.addNum(number);
@@ -10,9 +11,7 @@ class App extends Component {
     render() {
         return(
             <div>
-                <p>
-                    {this.props.value}
-                </p>
+                <p>{this.props.value}</p>
                 <button onClick={this.props.addFun}>++</button>
                 {' '}
                 <button onClick={this.props.minusFun}>--</button>

@@ -20,6 +20,7 @@ const render1 = () => {
             value={store.getState()}
             addFun={() => store.dispatch({ type: 'ADD' })}
             minusFun={() => store.dispatch({ type: 'MINUS'})}
+            //向action中传值number
             addNum = {(number) => store.dispatch({ type: 'ADDNUM',number})}
         />, rootElement
     )
