@@ -1,27 +1,21 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-//import { Provider } from 'react-redux';
-//import reducer from './reducer';
 import reducer from './reducer/main';
 import App from './app/main';
 const rootElement = document.querySelector("#root");
 
+
+//this is store created from reducer
 let store = createStore(reducer);
 
-// render(
-//     <Provider store={store}>
-//         <div>
-//             <App/>
-//         </div>
-//     </Provider>,
-//     rootElement
-// )
 
 const render1 = () =>{
     render(
         <App 
+        // this is the way get state from store
         value = {store.getState()}
+        //this is the way we change the state
         addFun = {()=>store.dispatch({type:'ADD'})}
         minusFun = {()=>store.dispatch({type:'MINUS'})}
         />,rootElement

@@ -1,3 +1,4 @@
+//this is reducer created for createStore()
 export default (state=0,action) => {
     const {type} = action;
     switch(type){
