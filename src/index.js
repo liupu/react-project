@@ -16,6 +16,7 @@ const render1 = () =>{
         // this is the way get state from store
         value = {store.getState()}
         //this is the way we change the state
+        //store.dispatch()会触发reducer function的自动执行
         addFun = {()=>store.dispatch({type:'ADD'})}
         minusFun = {()=>store.dispatch({type:'MINUS'})}
         />,rootElement
