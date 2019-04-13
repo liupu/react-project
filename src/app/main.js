@@ -1,14 +1,28 @@
-import React from 'react';
-function App(props){
-    return(
-        <div>
-            <p>
-                {props.value}
-            </p>
-            <button onClick={props.addFun}>++</button>
-            {' '}
-            <button onClick = {props.minusFun}>--</button>
-        </div>
-    )
+import React, { Component } from 'react';
+
+class App extends Component {
+    addNum(){
+        let number = Number(this.refs.num.value); 
+        console.log(number);
+        this.props.addNum(number);
+        this.refs.num.value = '';
+    }
+    render() {
+        return(
+            <div>
+                <p>
+                    {this.props.value}
+                </p>
+                <button onClick={this.props.addFun}>++</button>
+                {' '}
+                <button onClick={this.props.minusFun}>--</button>
+                {' '}
+                <input type='text' placeholder='Please input a number' ref='num'/>
+                {' '}
+                <button onClick={this.addNum.bind(this)}>add the input number</button>
+            </div>
+        )
+    }
 }
+
 export default App;

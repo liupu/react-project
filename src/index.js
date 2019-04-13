@@ -19,7 +19,8 @@ const render1 = () => {
         <App
             value={store.getState()}
             addFun={() => store.dispatch({ type: 'ADD' })}
-            minusFun={() => store.dispatch({ type: 'MINUS' })}
+            minusFun={() => store.dispatch({ type: 'MINUS'})}
+            addNum = {(number) => store.dispatch({ type: 'ADDNUM',number})}
         />, rootElement
     )
 }

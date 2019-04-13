@@ -5,7 +5,9 @@ export default (state=0,action) => {
         case 'ADD':
         return state + 1;
         case 'MINUS':
-        return state -1;
+        return state - 1;
+        case 'ADDNUM':
+        return state + Number(action.number);
         default:
         return state;
     }
