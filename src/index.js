@@ -8,7 +8,7 @@ import reducer from './reducer/main';
 import App from './app/main';
 const rootElement = document.querySelector("#root");
 
-let store = createStore(
+const store = createStore(
     reducer,
     applyMiddleware(thunk,promise,logger)
 );
