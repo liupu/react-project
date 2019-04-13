@@ -1,25 +1,26 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import promise from 'redux-promise';
+import logger from 'redux-logger';
 import reducer from './reducer/main';
 import App from './app/main';
 const rootElement = document.querySelector("#root");
 
+let store = createStore(
+    reducer,
+    applyMiddleware(thunk,promise,logger)
+);
 
-//this is store created from reducer
-let store = createStore(reducer);
 
-
-const render1 = () =>{
+const render1 = () => {
     render(
-        <App 
-        // this is the way get state from store
-        value = {store.getState()}
-        //this is the way we change the state
-        //store.dispatch()会触发reducer function的自动执行
-        addFun = {()=>store.dispatch({type:'ADD'})}
-        minusFun = {()=>store.dispatch({type:'MINUS'})}
-        />,rootElement
+        <App
+            value={store.getState()}
+            addFun={() => store.dispatch({ type: 'ADD' })}
+            minusFun={() => store.dispatch({ type: 'MINUS' })}
+        />, rootElement
     )
 }
 render1();
