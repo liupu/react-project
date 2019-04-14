@@ -42,5 +42,10 @@ class Com extends React.Component{
         super(props);
         this.state = {date: new Date()}
     }
+    render(){
+        return(
+            <h1>{this.state.date.toLocaleTimeString()}</h1>
+        )
+    }
 }
 ```
